@@ -16,17 +16,23 @@ public abstract class Employe {
 	private LocalDate dateEmbauche;
 	
 	private Double salaire = Entreprise.SALAIRE_BASE;
+
+	private String sexe;
+
+	private Boolean tempsPartiel;
 	
 	public Employe() {
 		
 	}
 	
-	public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire) {
+	public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, String sexe, Boolean tempsPartiel) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.matricule = matricule;
 		this.dateEmbauche = dateEmbauche;
 		this.salaire = salaire;
+		this.sexe = sexe;
+		this.tempsPartiel = tempsPartiel;
 	}
 
 	public final Integer getNombreAnneeAnciennete() {
@@ -103,18 +109,28 @@ public abstract class Employe {
 		this.dateEmbauche = dateEmbauche;
 	}
 
-	/**
-	 * @return the salaire
-	 */
 	public Double getSalaire() {
 		return salaire;
 	}
-	
-	/**
-	 * @param salaire the salaire to set
-	 */
+
 	public void setSalaire(Double salaire) {
 		this.salaire = salaire;
+	}
+
+	public Boolean getTempsPartiel() {
+		return tempsPartiel;
+	}
+
+	public void setTempsPartiel(Boolean tempsPartiel) {
+		this.tempsPartiel = tempsPartiel;
+	}
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
 	}
 
 	@Override
@@ -122,9 +138,11 @@ public abstract class Employe {
 		final StringBuilder sb = new StringBuilder("Employe{");
 		sb.append("nom='").append(nom).append('\'');
 		sb.append(", prenom='").append(prenom).append('\'');
+		sb.append(", sexe=").append(sexe);
 		sb.append(", matricule='").append(matricule).append('\'');
 		sb.append(", dateEmbauche=").append(dateEmbauche);
 		sb.append(", salaire=").append(salaire);
+		sb.append(", temps partiel=").append(tempsPartiel);
 		sb.append('}');
 		return sb.toString();
 	}
@@ -139,6 +157,7 @@ public abstract class Employe {
 		if (Double.compare(employe.salaire, salaire) != 0) return false;
 		if (nom != null ? !nom.equals(employe.nom) : employe.nom != null) return false;
 		if (prenom != null ? !prenom.equals(employe.prenom) : employe.prenom != null) return false;
+		if (sexe != null ? !sexe.equals(employe.sexe) : employe.sexe != null) return false;
 		if (matricule != null ? !matricule.equals(employe.matricule) : employe.matricule != null) return false;
 		return dateEmbauche != null ? dateEmbauche.equals(employe.dateEmbauche) : employe.dateEmbauche == null;
 
@@ -146,6 +165,6 @@ public abstract class Employe {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(nom, prenom, matricule, dateEmbauche, salaire);
+		return Objects.hash(nom, prenom, sexe, matricule, dateEmbauche, salaire, tempsPartiel);
 	}
 }
