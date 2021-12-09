@@ -51,7 +51,7 @@ public class Technicien extends Employe implements Comparable<Technicien> {
 		super.setSalaire( salaire * (1 + (double) grade / 10));
 	}
 
-	@Override
+
 	public String toString() {
 		return "Technicien{" +
 				"grade=" + grade +
