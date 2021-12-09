@@ -12,7 +12,8 @@ public class Cadre extends Employe{
 
     }
 
-    public Cadre(Double coefficient) {
+    public Cadre(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, String sexe, Boolean tempsPartiel, Double coefficient) {
+        super(nom, prenom, matricule, dateEmbauche, salaire, sexe, tempsPartiel);
         this.coefficient = coefficient;
     }
 
@@ -43,9 +44,8 @@ public class Cadre extends Employe{
         return Double.compare(that.coefficient, coefficient) == 0;
     }
 
-    @Override
     public String toString() {
-        return "Cadre{" +
+        return super.toString() + "Cadre{" +
                 "coefficient=" + coefficient +
                 "} " + super.toString();
     }

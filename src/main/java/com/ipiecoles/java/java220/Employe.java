@@ -33,7 +33,12 @@ public abstract class Employe {
 		this.salaire = salaire;
 	}
 
-	public Employe(String sexe, Boolean tempsPartiel){
+	public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, String sexe, Boolean tempsPartiel){
+		this.nom = nom;
+		this.prenom = prenom;
+		this.matricule = matricule;
+		this.dateEmbauche = dateEmbauche;
+		this.salaire = salaire;
 		this.sexe = sexe;
 		this.tempsPartiel = tempsPartiel;
 	}
@@ -141,10 +146,10 @@ public abstract class Employe {
 		final StringBuilder sb = new StringBuilder("Employe{");
 		sb.append("nom='").append(nom).append('\'');
 		sb.append(", prenom='").append(prenom).append('\'');
-		sb.append(", sexe=").append(sexe);
 		sb.append(", matricule='").append(matricule).append('\'');
 		sb.append(", dateEmbauche=").append(dateEmbauche);
 		sb.append(", salaire=").append(salaire);
+		sb.append(", sexe=").append(sexe);
 		sb.append(", temps partiel=").append(tempsPartiel);
 		sb.append('}');
 		return sb.toString();
