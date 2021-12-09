@@ -20,6 +20,10 @@ public class Cadre extends Employe{
         return Entreprise.primeAnnuelleBase() * this.coefficient;
     }
 
+    public Integer getNbConges() {
+        return Math.toIntExact(Entreprise.NB_CONGES_BASE + Math.round(this.coefficient));
+    }
+
     public Double getCoefficient() {
         return coefficient;
     }
